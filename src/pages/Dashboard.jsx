@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import ReactPlayer from "react-player";
 import { useDispatch, useSelector } from "react-redux";
 import SyncLoader from "react-spinners/SyncLoader";
 import Dashboardlayout from "../components/Dashboardlayout";
-import Stamps from "../components/Stamps";
 import VideoCard from "../components/VideoCard";
 // import ImageCard from "../components/ImageCard";
 
@@ -58,12 +56,9 @@ const Dashboard = () => {
     {
       urls: "http://files.fullstack.edu.vn/f8-tiktok/videos/1947-64235df74f87f.mp4",
     },
-    {
-      urls: "https://files.fullstack.edu.vn/f8-tiktok/videos/1944-642288e7364d8.mp4",
-    },
   ];
   return (
-    <Dashboardlayout>
+    <Dashboardlayout notify>
       {isLoading ? (
         <div className="flex flex-col justify-center h-screen">
           <SyncLoader color="#af00ff" loading={true} size={10} />
@@ -72,7 +67,7 @@ const Dashboard = () => {
         <div
           // ref={divRef}
           // onScroll={handleScroll}
-          className="layout mb-[4rem] overflow-auto"
+          className="mb-[4rem] overflow-auto"
         >
           <VideoCard videos={videos} />
         </div>

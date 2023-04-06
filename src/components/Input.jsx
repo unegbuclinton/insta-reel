@@ -23,7 +23,7 @@ const InputField = ({
           <img src={iconImg} alt="" className="w-4/5" />
         </div>
         <input
-          className={`text-base mb-2 lg:mb-1 rounded bg-transparent border-[#595959] transition focus:border-[#171C33] focus:shadow-xxl shadow-xl h-12 outline-none w-full ${
+          className={`text-base mb-2 lg:mb-1 rounded bg-transparent border border-[#595959] transition focus:border-folly h-12 outline-none w-full ${
             plain ? "p-4" : "pl-14"
           } text-[#171C33]`}
           placeholder={placeholder}

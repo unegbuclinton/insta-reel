@@ -48,7 +48,7 @@ const Registration = () => {
     <div className="flex justify-center">
       <div className=" flex flex-col justify-center items-center pt-5 lg:p-20">
         <div className="flex justify-center">
-          <img src={reels} alt="" className="w-[60%]" />
+          <img src={reels} alt="" className="w-[40%]" />
         </div>
         <form
           onSubmit={formik.handleSubmit}
@@ -133,7 +133,7 @@ const Registration = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.gender}
-            className="w-full shadow-xl rounded h-12 mb-2 bg-transparent outline-none"
+            className="w-full border border-[#595959] rounded h-12 mb-2 bg-transparent outline-none"
           >
             <option value="" label="Select a gender">
               Select a gender

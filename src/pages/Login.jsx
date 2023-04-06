@@ -49,7 +49,7 @@ const Login = () => {
             Log in
           </h1> */}
           <div className="flex justify-center">
-            <img src={reels} alt="" className="w-[50%]" />
+            <img src={reels} alt="" className="w-[35%]" />
           </div>
           <InputField
             type="text"

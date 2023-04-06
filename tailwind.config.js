@@ -15,9 +15,11 @@ module.exports = {
 
     fontFamily: {
       poppins: ['Poppins', 'sans-serif'],
-      roboto: ['Roboto', 'sans-serif'] 
+      roboto: ['Roboto', 'sans-serif'] ,
+      lilly: ['Lily Script One', "cursive"]
     },
   },
 
   plugins: [],
 };
+
