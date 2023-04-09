@@ -7,8 +7,9 @@ import VideoCard from "../components/VideoCard";
 
 import {
   pageCounter,
-  updateProfilesList,
-  uploadProfiles,
+  // updateProfilesList,
+  // uploadProfiles,
+  uploadProfilesVideos,
 } from "../redux/DashboardSlice";
 import "./pages.css";
 const Dashboard = () => {
@@ -18,45 +19,35 @@ const Dashboard = () => {
     (state) => state.dashboard
   );
 
-  // const dispatch = useDispatch();
-  // const increase = () => {
-  //   dispatch(pageCounter());
-  //   setIsFetching(false);
-  // };
-  // useEffect(() => {
-  //   if (listener.current) {
-  //     listener.current = false;
-  //     dispatch(uploadProfiles(pageNumber));
-  //   }
-  //   const timer = setTimeout(() => {}, 1000);
-  //   return () => clearTimeout(timer);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  console.log(profiles);
+  const dispatch = useDispatch();
+  const increase = () => {
+    dispatch(pageCounter());
+    setIsFetching(false);
+  };
+  useEffect(() => {
+    if (listener.current) {
+      listener.current = false;
+      dispatch(uploadProfilesVideos(pageNumber));
+    }
+    const timer = setTimeout(() => {}, 1000);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  // const divRef = useRef(null);
-  // const handleScroll = () => {
-  //   const container = divRef.current;
-  //   const scrollTop = container.scrollTop;
-  //   const clientHeight = container.clientHeight;
-  //   const scrollHeight = container.scrollHeight;
-  //   const isAtBottom = scrollTop + clientHeight + 500 >= scrollHeight - 30;
-  //   if (isAtBottom && !isLoading) {
-  //     increase();
-  //     dispatch(updateProfilesList(pageNumber));
-  //   }
-  // };
+  const divRef = useRef(null);
+  const handleScroll = () => {
+    const container = divRef.current;
+    const scrollTop = container.scrollTop;
+    const clientHeight = container.clientHeight;
+    const scrollHeight = container.scrollHeight;
+    const isAtBottom = scrollTop + clientHeight + 500 >= scrollHeight - 30;
+    if (isAtBottom && !isLoading) {
+      increase();
+      dispatch(uploadProfilesVideos(pageNumber));
+    }
+  };
 
-  const videos = [
-    {
-      urls: "https://files.fullstack.edu.vn/f8-tiktok/videos/1943-6421d2e76fe61.mp4",
-    },
-    {
-      urls: "https://files.fullstack.edu.vn/f8-tiktok/videos/1946-6423383dcf32e.mp4",
-    },
-    {
-      urls: "http://files.fullstack.edu.vn/f8-tiktok/videos/1947-64235df74f87f.mp4",
-    },
-  ];
   return (
     <Dashboardlayout notify>
       {isLoading ? (
@@ -65,11 +56,11 @@ const Dashboard = () => {
         </div>
       ) : (
         <div
-          // ref={divRef}
-          // onScroll={handleScroll}
+          ref={divRef}
+          onScroll={handleScroll}
           className="mb-[4rem] overflow-auto"
         >
-          <VideoCard videos={videos} />
+          <VideoCard videos={profiles} />
         </div>
       )}
     </Dashboardlayout>

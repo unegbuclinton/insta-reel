@@ -1,6 +1,6 @@
 import instance from '../../apiInstance';
 
-export const getProfiles = async (page) => {
+export const getProfilesVideos = async (page) => {
   try {
     const response = await instance({
       method: 'get',

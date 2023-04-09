@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getProfiles, likePost, userData } from "../api/dashboard";
+import { getProfilesVideos, likePost, userData } from "../api/dashboard";
 
 const initialState = {
   isLoading: false,
@@ -8,13 +8,13 @@ const initialState = {
   profiles: [],
 };
 
-export const uploadProfiles = createAsyncThunk(
+export const uploadProfilesVideos = createAsyncThunk(
   "dashboard/uploadProfiles",
-  getProfiles
+  getProfilesVideos
 );
 export const updateProfilesList = createAsyncThunk(
   "dashboard/uploadProfilesList",
-  getProfiles
+  getProfilesVideos
 );
 
 export const likeAPost = createAsyncThunk("dashboard/likeAPost", likePost);
@@ -31,14 +31,14 @@ export const dashboardSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(uploadProfiles.fulfilled, (state, action) => {
+    builder.addCase(uploadProfilesVideos.fulfilled, (state, action) => {
       state.profiles = action.payload;
       state.isLoading = false;
     });
-    builder.addCase(uploadProfiles.pending, (state) => {
+    builder.addCase(uploadProfilesVideos.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(uploadProfiles.rejected, (state) => {
+    builder.addCase(uploadProfilesVideos.rejected, (state) => {
       state.isLoading = false;
     });
     builder.addCase(updateProfilesList.fulfilled, (state, action) => {
