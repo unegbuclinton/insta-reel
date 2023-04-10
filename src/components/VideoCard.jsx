@@ -60,23 +60,29 @@ const VideoCard = ({ videos }) => {
 
   return (
     <>
-      {videos?.map(({ URL, id, profileName, likes }, idx) => {
-        return (
-          <div key={idx} className="relative" onClick={addControl}>
-            <Stamps onClick={() => getLike(id)} likes={likes} />
-            <VideoInfo profileName={profileName} />
-            <ReactPlayer
-              loop={true}
-              playing={true}
-              muted={true}
-              controls={controls}
-              width="100%"
-              height="100%"
-              url={URL}
-            />
-          </div>
-        );
-      })}
+      {videos?.map(
+        ({ URL, id, profileName, caption, profileImage, likes }, idx) => {
+          return (
+            <div key={idx} className="relative" onClick={addControl}>
+              <Stamps onClick={() => getLike(id)} likes={likes} />
+              <VideoInfo
+                profileName={profileName}
+                caption={caption}
+                profileImage={profileImage}
+              />
+              <ReactPlayer
+                loop={true}
+                // playing={true}
+                muted={true}
+                controls={controls}
+                width="100%"
+                height="100%"
+                url={URL}
+              />
+            </div>
+          );
+        }
+      )}
     </>
   );
 };
