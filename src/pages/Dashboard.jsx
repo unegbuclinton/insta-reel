@@ -7,8 +7,7 @@ import VideoCard from "../components/VideoCard";
 
 import {
   pageCounter,
-  // updateProfilesList,
-  // uploadProfiles,
+  updateProfileVideosList,
   uploadProfilesVideos,
 } from "../redux/DashboardSlice";
 import "./pages.css";
@@ -44,7 +43,7 @@ const Dashboard = () => {
     const isAtBottom = scrollTop + clientHeight + 500 >= scrollHeight - 30;
     if (isAtBottom && !isLoading) {
       increase();
-      dispatch(uploadProfilesVideos(pageNumber));
+      dispatch(updateProfileVideosList(pageNumber));
     }
   };
 

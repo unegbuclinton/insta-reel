@@ -12,7 +12,7 @@ export const uploadProfilesVideos = createAsyncThunk(
   "dashboard/uploadProfiles",
   getProfilesVideos
 );
-export const updateProfilesList = createAsyncThunk(
+export const updateProfileVideosList = createAsyncThunk(
   "dashboard/uploadProfilesList",
   getProfilesVideos
 );
@@ -41,7 +41,7 @@ export const dashboardSlice = createSlice({
     builder.addCase(uploadProfilesVideos.rejected, (state) => {
       state.isLoading = false;
     });
-    builder.addCase(updateProfilesList.fulfilled, (state, action) => {
+    builder.addCase(updateProfileVideosList.fulfilled, (state, action) => {
       state.profiles = [...state.profiles, ...action.payload];
     });
 
