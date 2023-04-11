@@ -5,9 +5,11 @@ import ReactPlayer from "react-player";
 import { useDispatch, useSelector } from "react-redux";
 // import { DPIconFilledHeart, DPIconHeart } from "../assets/images/icons";
 import { getUserData, likeAPost } from "../redux/DashboardSlice";
+
 import "./image.css";
 import Stamps from "./Stamps";
 import VideoInfo from "./VideoInfo";
+import { useElement } from "../hook/ElementOnScreen";
 const VideoCard = ({ videos }) => {
   const [controls, setControls] = useState(false);
   const addControl = () => {
@@ -29,41 +31,24 @@ const VideoCard = ({ videos }) => {
       );
     });
   };
-  // const [shouldPlay, setShouldPlay] = useState(false);
-  // const videoRef = useRef(null);
-
-  // useEffect(() => {
-  //   let options = {
-  //     rootMargin: "0px",
-  //     threshold: [0.25, 0.75],
-  //   };
-
-  //   let handlePlay = (entries, observer) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         setShouldPlay(true);
-  //       } else {
-  //         setShouldPlay(false);
-  //       }
-  //     });
-  //   };
-
-  //   let observer = new IntersectionObserver(handlePlay, options);
-
-  //   observer.observe(videoRef.current);
-  //   return () => {
-  //     if (videoRef.current) {
-  //       observer.unobserve(videoRef.current);
-  //     }
-  //   };
-  // });
+  const [containerRef, isVisible] = useElement({
+    root: null,
+    rootMargin: "0px",
+    threshold: 1.0,
+  });
 
   return (
     <>
       {videos?.map(
         ({ URL, id, profileName, caption, profileImage, likes }, idx) => {
           return (
-            <div key={idx} className="relative" onClick={addControl}>
+            <div
+              ref={containerRef}
+              key={idx}
+              className="relative"
+              onClick={addControl}
+              style={{ border: "3px solid red" }}
+            >
               <Stamps onClick={() => getLike(id)} likes={likes} />
               <VideoInfo
                 profileName={profileName}
@@ -71,9 +56,11 @@ const VideoCard = ({ videos }) => {
                 profileImage={profileImage}
               />
               <ReactPlayer
+                className="react-player"
                 loop={true}
-                // playing={true}
+                playing={isVisible}
                 muted={true}
+                playsinline
                 controls={controls}
                 width="100%"
                 height="100%"
