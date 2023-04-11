@@ -47,7 +47,6 @@ const VideoCard = ({ videos }) => {
               key={idx}
               className="relative"
               onClick={addControl}
-              style={{ border: "3px solid red" }}
             >
               <Stamps onClick={() => getLike(id)} likes={likes} />
               <VideoInfo
