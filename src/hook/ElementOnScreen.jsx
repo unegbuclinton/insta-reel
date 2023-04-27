@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const useElement = (options) => {
-  const containerRef = useRef([React.createRef()]);
+  const containerRef = useRef();
   const [isVisible, setIsvisible] = useState(false);
 
   const callBackFunction = (entries) => {

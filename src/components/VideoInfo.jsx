@@ -12,7 +12,9 @@ const VideoInfo = ({ profileName, caption, profileImage }) => {
         <p>{profileName}</p>
         <p className="p-1 border ml-3 border-white rounded-lg">Follow</p>
       </div>
-      <p>{caption}</p>
+      <p className="w-[250px] h-10 overflow-hidden whitespace-nowrap text-ellipsis">
+        {caption}
+      </p>
     </div>
   );
 };

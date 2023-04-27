@@ -12,7 +12,7 @@ const DashboardFooter = () => {
     navigate("/checkout");
   };
   return (
-    <div className="flex justify-evenly items-center gap-8 fixed bottom-0 bg-black h-[4rem] w-full z-20">
+    <div className="flex h-[64px] justify-evenly items-center gap-8 fixed bottom-0 bg-black  w-full z-20">
       <RiHome5Line color="#fff" size={22} />
       <BsSearch color="#fff" size={22} />
       <RiAddCircleLine color="#fff" size={40} />
