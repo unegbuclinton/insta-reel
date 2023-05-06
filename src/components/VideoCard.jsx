@@ -1,9 +1,7 @@
-import dayjs from "dayjs";
 import React, { useEffect, useRef, useState } from "react";
-import toast from "react-hot-toast";
+
 import ReactPlayer from "react-player";
-import { useDispatch, useSelector } from "react-redux";
-import { getUserData, likeAPost } from "../redux/DashboardSlice";
+
 import "./image.css";
 import Stamps from "./Stamps";
 import VideoInfo from "./VideoInfo";
@@ -15,21 +13,7 @@ const VideoCard = ({ videos }) => {
   const addControl = () => {
     setControls((prev) => !prev);
   };
-  const { userData } = useSelector((state) => state.dashboard);
-  const { limit, nextTime } = userData;
-  const dispatch = useDispatch();
-  const [forLike, setForLike] = useState(false);
-  const formatDate = dayjs(nextTime).format("ddd DD/MM hh:mm");
-  const getLike = (id) => {
-    setForLike((prev) => !prev);
-    dispatch(likeAPost(id)).then(() => {
-      dispatch(getUserData());
-      if (!limit) return;
-      toast.error(
-        `You have reached your 100 likes daily limit! Come back at ${formatDate}`
-      );
-    });
-  };
+
   const [containerRef, isVisible] = useElement({
     root: null,
     rootMargin: "0px",
@@ -48,11 +32,7 @@ const VideoCard = ({ videos }) => {
               className="relative"
               onClick={addControl}
             >
-              <Stamps
-                onClick={() => getLike(id)}
-                likes={likes}
-                onLike={forLike}
-              />
+              <Stamps onClick={() => getLike(id)} id={id} likes={likes} />
               <VideoInfo
                 profileName={profileName}
                 caption={caption}
