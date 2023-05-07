@@ -9,7 +9,7 @@ import InputField from "../components/Input";
 import { userRegister } from "../redux/authSlice";
 import { registrationSchema } from "../validation/Schema";
 import reels from "../assets/images/instagram-reel.png";
-import "./pages.css";
+
 const Registration = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.auth);

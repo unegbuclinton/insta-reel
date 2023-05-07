@@ -9,7 +9,6 @@ import { resetState, userLogin } from "../redux/authSlice";
 import { getUserData, resetDashboardState } from "../redux/DashboardSlice";
 import { loginSchema } from "../validation/Schema";
 import reels from "../assets/images/instagram-reel.png";
-import "./pages.css";
 
 const Login = () => {
   const navigate = useNavigate();

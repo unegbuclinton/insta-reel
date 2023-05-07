@@ -3,12 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Dashboardlayout from "../components/Dashboardlayout";
 import VideoCard from "../components/VideoCard";
 import { ImSpinner2 } from "react-icons/im";
-import {
-  pageCounter,
-  updateProfileVideosList,
-  uploadProfilesVideos,
-} from "../redux/DashboardSlice";
-import "./pages.css";
+import { uploadProfilesVideos } from "../redux/DashboardSlice";
 
 const Dashboard = () => {
   const listener = useRef(true);
