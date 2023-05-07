@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Stamps from "./Stamps";
 import VideoInfo from "./VideoInfo";
 import useElementOnScreen from "../hook/ElementOnScreen";
-const SvideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
+const VideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const videoRef = useRef(null);
@@ -19,7 +19,7 @@ const SvideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
   const options = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.3,
+    threshold: 0.5,
   };
   const isVisibile = useElementOnScreen(options, videoRef);
 
@@ -56,4 +56,4 @@ const SvideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
   );
 };
 
-export default SvideoCard;
+export default VideoCard;
