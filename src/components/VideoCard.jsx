@@ -46,6 +46,7 @@ const VideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
       />
       <video
         ref={videoRef}
+        playsinline
         loop
         preload="true"
         onClick={onVideoPress}
