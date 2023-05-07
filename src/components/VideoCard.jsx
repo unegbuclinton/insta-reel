@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import "../assets/styles/videoCard.css";
+// import "../assets/styles/videoCard.css";
 import Stamps from "./Stamps";
 import VideoInfo from "./VideoInfo";
 const SvideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
