@@ -6,7 +6,6 @@ import Landing from "./pages/Landing";
 import Registration from "./pages/Registration";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import { SkeletonTheme } from "react-loading-skeleton";
-import Test from "./pages/test";
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
             <Route element={<PrivateRoutes />}>
               <Route exact path="/dashboard" element={<Dashboard />} />
               <Route exact path="/checkout" element={<Checkout />} />
-              <Route exact path="/test" element={<Test />} />
             </Route>
           </Routes>
         </Router>

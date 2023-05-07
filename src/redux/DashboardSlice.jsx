@@ -43,6 +43,13 @@ export const dashboardSlice = createSlice({
     });
     builder.addCase(updateProfileVideosList.fulfilled, (state, action) => {
       state.profiles = [...state.profiles, ...action.payload];
+      state.isLoading = false;
+    });
+    builder.addCase(updateProfileVideosList.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(updateProfileVideosList.rejected, (state, action) => {
+      state.isLoading = false;
     });
 
     builder.addCase(likeAPost.fulfilled, (state, action) => {

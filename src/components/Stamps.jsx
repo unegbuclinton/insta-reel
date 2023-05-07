@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { FaRegComment } from "react-icons/fa";
+import { TfiComment } from "react-icons/tfi";
 import toast from "react-hot-toast";
 import dayjs from "dayjs";
 import { FiSend } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import { getUserData, likeAPost } from "../redux/DashboardSlice";
 
 const Stamps = ({ likes, id }) => {
@@ -24,20 +25,24 @@ const Stamps = ({ likes, id }) => {
     });
   };
   return (
-    <div className=" flex flex-col justify-center items-center absolute bottom-[4rem] right-3 z-10 text-sm text-white font-medium">
+    <div className=" flex flex-col justify-center gap-2 items-center absolute bottom-7 right-3 z-10 text-sm text-white font-medium">
       <div className="flex flex-col items-center mb-3">
-        {!forLike && <AiOutlineHeart size={25} onClick={() => getLike(id)} />}
+        {!forLike && <AiOutlineHeart size={23} onClick={() => getLike(id)} />}
         {forLike && (
-          <AiFillHeart size={25} color="#e81405" onClick={() => getLike(id)} />
+          <AiFillHeart size={23} color="#e81405" onClick={() => getLike(id)} />
         )}
         <p className="mt-1">{likes}</p>
       </div>
       <div className="flex flex-col items-center mb-3">
-        <FaRegComment size={25} />
+        <TfiComment size={20} />
         <p className="mt-1">10.5M</p>
       </div>
       <div className="flex flex-col items-center mb-3">
-        <FiSend size={25} />
+        <FiSend size={22} />
+        <p className="mt-1">425</p>
+      </div>
+      <div className="flex flex-col items-center mb-3">
+        <BsThreeDotsVertical size={22} />
       </div>
     </div>
   );
