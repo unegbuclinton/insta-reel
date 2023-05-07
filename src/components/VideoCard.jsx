@@ -53,6 +53,7 @@ const VideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
         onClick={onVideoPress}
         className="videoCard__player"
         src={src}
+        type="video/mp4"
       />
     </div>
   );
