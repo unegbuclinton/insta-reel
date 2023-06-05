@@ -4,6 +4,7 @@ import Dashboardlayout from "../components/Dashboardlayout";
 import VideoCard from "../components/VideoCard";
 import { ImSpinner2 } from "react-icons/im";
 import { uploadProfilesVideos } from "../redux/DashboardSlice";
+import LazyLoad from "react-lazy-load";
 
 const Dashboard = () => {
   const listener = useRef(true);
@@ -27,15 +28,16 @@ const Dashboard = () => {
       {profiles?.map(
         ({ URL, id, profileName, caption, profileImage, likes }, idx) => {
           return (
-            <VideoCard
-              key={idx}
-              src={URL}
-              id={id}
-              profileImage={profileImage}
-              caption={caption}
-              profileName={profileName}
-              likes={likes}
-            />
+            <LazyLoad height="100%" key={idx} offset={100} once>
+              <VideoCard
+                src={URL}
+                id={id}
+                profileImage={profileImage}
+                caption={caption}
+                profileName={profileName}
+                likes={likes}
+              />
+            </LazyLoad>
           );
         }
       )}
