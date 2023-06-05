@@ -4,7 +4,7 @@ import VideoInfo from "./VideoInfo";
 import useElementOnScreen from "../hook/ElementOnScreen";
 const VideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [showControls, setShowControls] = useState(false);
+  // const [showControls, setShowControls] = useState(false);
 
   const videoRef = useRef(null);
   const onVideoPress = () => {
@@ -40,7 +40,7 @@ const VideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
     <Suspense fallback={<div>Loading...</div>}>
       <div
         className="videoCard"
-        onClick={() => setShowControls((prev) => !prev)}
+        // onClick={() => setShowControls((prev) => !prev)}
       >
         <Stamps likes={likes} id={id} />
         <VideoInfo
@@ -54,7 +54,7 @@ const VideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
           playsInline
           muted
           loop
-          controls={showControls}
+          // controls={showControls}
           preload="true"
           onClick={onVideoPress}
           className="videoCard__player"
