@@ -4,39 +4,39 @@ import VideoInfo from "./VideoInfo";
 import useElementOnScreen from "../hook/ElementOnScreen";
 
 const VideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  // const [showControls, setShowControls] = useState(false);
+  // const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  // // const [showControls, setShowControls] = useState(false);
 
   const videoRef = useRef(null);
-  const onVideoPress = () => {
-    if (isVideoPlaying) {
-      videoRef.current.pause();
-      setIsVideoPlaying(false);
-    } else {
-      videoRef.current.play();
-      setIsVideoPlaying(true);
-    }
-  };
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5,
-  };
-  const isVisibile = useElementOnScreen(options, videoRef);
+  // const onVideoPress = () => {
+  //   if (isVideoPlaying) {
+  //     videoRef.current.pause();
+  //     setIsVideoPlaying(false);
+  //   } else {
+  //     videoRef.current.play();
+  //     setIsVideoPlaying(true);
+  //   }
+  // };
+  // const options = {
+  //   root: null,
+  //   rootMargin: "0px",
+  //   threshold: 0.5,
+  // };
+  // const isVisibile = useElementOnScreen(options, videoRef);
 
-  useEffect(() => {
-    if (isVisibile) {
-      if (!isVideoPlaying) {
-        videoRef.current.play();
-        setIsVideoPlaying(true);
-      }
-    } else {
-      if (isVideoPlaying) {
-        videoRef.current.pause();
-        setIsVideoPlaying(false);
-      }
-    }
-  }, [isVisibile]);
+  // useEffect(() => {
+  //   if (isVisibile) {
+  //     if (!isVideoPlaying) {
+  //       videoRef.current.play();
+  //       setIsVideoPlaying(true);
+  //     }
+  //   } else {
+  //     if (isVideoPlaying) {
+  //       videoRef.current.pause();
+  //       setIsVideoPlaying(false);
+  //     }
+  //   }
+  // }, [isVisibile]);
   return (
     <div
       className="videoCard"
@@ -51,12 +51,12 @@ const VideoCard = ({ src, profileImage, profileName, caption, id, likes }) => {
 
       <video
         ref={videoRef}
-        playsInline
+        // playsInline
         muted
-        loop
+        // loop
         // controls={showControls}
-        preload="true"
-        onClick={onVideoPress}
+        // preload="true"
+        // onClick={onVideoPress}
         className="videoCard__player"
         src={src}
         type="video/mp4"
