@@ -5,11 +5,11 @@ import VideoCard from "../components/VideoCard";
 import { ImSpinner2 } from "react-icons/im";
 import { uploadProfilesVideos } from "../redux/DashboardSlice";
 import LazyLoad from "react-lazy-load";
-import video1 from "../assets/videos/video1.webm";
-import video2 from "../assets/videos/video2.webm";
-import video3 from "../assets/videos/video3.webm";
-import video4 from "../assets/videos/video4.webm";
-import video5 from "../assets/videos/video5.webm";
+import video1 from "../assets/videos/video1.mp4";
+import video2 from "../assets/videos/video2.mp4";
+import video3 from "../assets/videos/video3.mp4";
+import video4 from "../assets/videos/video4.mp4";
+import video5 from "../assets/videos/video5.mp4";
 
 const Dashboard = () => {
   const listener = useRef(true);
